@@ -1,5 +1,12 @@
+import Quiz from "./components/Quiz/Quiz";
+import "./QuizStore";
+
 function App() {
-  return <h1>App</h1>;
+  return (
+    <div>
+      <Quiz />
+    </div>
+  );
 }
 
 export default App;
