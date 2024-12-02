@@ -29,7 +29,9 @@ function Question() {
           </label>
         ))}
       </div>
-      <button onClick={handleSubmit}>Submit Answer</button>
+      <button className="border border-black p-2" onClick={handleSubmit}>
+        Submit Answer
+      </button>
     </>
   );
 }
