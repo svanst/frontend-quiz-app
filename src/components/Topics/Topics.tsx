@@ -1,9 +1,9 @@
-import { useShallow } from "zustand/shallow";
+import { useTopics } from "../../hooks/useTopics";
 import { useQuizStore } from "../../QuizStore";
 
 function Topics() {
-  const topics = useQuizStore(useShallow((state) => state.getTopics()));
   const startQuiz = useQuizStore((state) => state.startQuiz);
+  const { topics } = useTopics();
 
   function pickTopic(index: number) {
     startQuiz(index);
@@ -12,7 +12,7 @@ function Topics() {
   return (
     <div className="flex flex-col">
       {topics?.map((topic, i) => (
-        <label>
+        <label key={topic}>
           <input
             type="radio"
             name="topic"

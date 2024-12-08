@@ -1,4 +1,5 @@
 import { useQuizStore } from "../../QuizStore";
+import Header from "../Header/Header";
 import Question from "../Question/Question";
 import ResultScreen from "../ResultScreen/ResultScreen";
 import WelcomeScreen from "../WelcomeScreen/WelcomeScreen";
@@ -10,7 +11,13 @@ function Quiz() {
   return (
     <div>
       {status === "start" && <WelcomeScreen />}
-      {status === "in-progress" && <Question key={questionIndex} />}
+      {status === "in-progress" && (
+        <>
+          <Header />
+          <Question key={questionIndex} />
+        </>
+      )}
+
       {status === "completed" && <ResultScreen />}
     </div>
   );
