@@ -8,6 +8,7 @@ type TopicIconProps = {
 };
 
 function TopicIcon({ iconKey }: TopicIconProps) {
+  if (!iconKey) return null;
   switch (iconKey.toUpperCase()) {
     case "HTML":
       return <HTMLIcon />;

@@ -6,12 +6,12 @@ export function useQuestions() {
   const { currentQuiz } = useQuizzes();
 
   const questions = currentQuiz?.questions;
-  const currentQuestion = currentQuiz?.questions[questionIndex];
+  const currentQuestion = currentQuiz?.questions[questionIndex!];
 
   return {
     questions,
     currentQuestion,
     questionIndex,
-    numQuestions: questions?.length,
+    numQuestions: questions!.length,
   };
 }

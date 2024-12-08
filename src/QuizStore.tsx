@@ -13,6 +13,7 @@ type Quiz = {
   icon: string;
   questions: Question[];
 };
+
 interface QuizStore {
   quizzes: Quiz[];
   quizIndex: number | null;
@@ -28,7 +29,7 @@ interface QuizStore {
 
 const initialState = {
   quizzes: quizData.quizzes,
-  quizIndex: 0,
+  quizIndex: null,
   questionIndex: 0,
   answerIndex: null,
   correctAnswerIndex: null,
@@ -38,7 +39,7 @@ const initialState = {
 
 export const useQuizStore = create<QuizStore>(
   // @ts-expect-error https://github.com/pmndrs/zustand/discussions/2168
-  devtools((set, get) => ({
+  (set, get) => ({
     ...initialState,
     getCurrentQuiz() {
       const { quizzes, quizIndex } = get();
@@ -88,7 +89,7 @@ export const useQuizStore = create<QuizStore>(
       console.log({ initialState });
       set({ ...initialState });
     },
-  }))
+  })
 );
 
 function getCorrectAnswerIndex(
