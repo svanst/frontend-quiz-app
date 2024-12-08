@@ -15,7 +15,7 @@ function Topics() {
       {topics?.map((topic, i) => (
         <label
           key={topic}
-          className="flex cursor-pointer items-center gap-4 rounded-xl bg-gray-500 p-4"
+          className="hover:border-primary-500 flex cursor-pointer items-center gap-4 rounded-xl border-2 border-transparent bg-gray-500 p-4"
         >
           <TopicIcon iconKey={topic as IconKey} />
           <input

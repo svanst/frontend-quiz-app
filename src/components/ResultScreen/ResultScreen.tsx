@@ -27,7 +27,7 @@ function ResultScreen() {
           </div>
 
           <button
-            className="w-full rounded-xl border border-primary bg-primary p-2"
+            className="border-primary-500 hover:bg-primary-300 hover:border-primary-300 bg-primary-500 w-full rounded-xl border p-2 font-medium"
             onClick={playAgain}
           >
             Play again

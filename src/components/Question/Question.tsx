@@ -44,7 +44,7 @@ function Question() {
         />
 
         <button
-          className="w-full rounded-xl border border-primary bg-primary p-2"
+          className="border-primary-500 bg-primary-500 hover:border-primary-300 hover:bg-primary-300 w-full rounded-xl border p-2 font-medium"
           onClick={handleSubmit}
         >
           {selectedAnswerIndex == null

@@ -6,7 +6,10 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: "hsl(277, 91%, 56%)",
+        primary: {
+          300: "hsl(276, 84%, 77%)",
+          500: "hsl(277, 91%, 56%)",
+        },
         success: "hsl(151, 70%, 50%)",
         danger: "hsl(0, 82%, 63%)",
         gray: {

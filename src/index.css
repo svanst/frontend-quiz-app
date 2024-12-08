@@ -39,7 +39,7 @@ progress {
 }
 
 progress::-webkit-progress-bar {
-  background-color: green; /* Tailwind gray-200 */
+  background-color: #e5e7eb;
 }
 
 progress::-webkit-progress-value {

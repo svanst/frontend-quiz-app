@@ -28,7 +28,7 @@ function OptionList({
         }
 
         if (selectedAnswerIndex === null) {
-          labelClass += " hover:border-primary"; // only show border on hover when no answer has been picked yet
+          labelClass += " hover:border-primary-500"; // only show border on hover when no answer has been picked yet
         }
 
         return (
