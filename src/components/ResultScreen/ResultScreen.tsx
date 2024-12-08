@@ -1,7 +1,7 @@
 import { useQuestions } from "../../hooks/useQuestions";
 import { useTopics } from "../../hooks/useTopics";
 import { useQuizStore } from "../../QuizStore";
-import TopicIcon from "../TopicIcon/TopicIcon";
+import TopicIcon, { IconKey } from "../TopicIcon/TopicIcon";
 
 function ResultScreen() {
   const points = useQuizStore((state) => state.points);
@@ -17,7 +17,7 @@ function ResultScreen() {
         <div className="flex-1">
           <div className="mb-8 flex flex-col items-center justify-center gap-6 rounded-xl bg-gray-500 p-12 font-medium">
             <span className="flex items-center gap-4">
-              <TopicIcon iconKey={currentTopic} /> {currentTopic}
+              <TopicIcon iconKey={currentTopic as IconKey} /> {currentTopic}
             </span>
 
             <p className="flex flex-col items-center gap-1">

@@ -1,3 +1,4 @@
+import { IconKey } from "../components/TopicIcon/TopicIcon";
 import { useQuizStore } from "../QuizStore";
 
 export function useTopics() {
@@ -7,7 +8,7 @@ export function useTopics() {
 
   let currentTopic = null;
   if (quizIndex !== null) {
-    currentTopic = quizzes[quizIndex].title;
+    currentTopic = quizzes[quizIndex].title as IconKey;
   }
 
   return { topics, currentTopic };

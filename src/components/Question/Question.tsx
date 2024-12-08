@@ -5,7 +5,9 @@ import { CircleX } from "lucide-react";
 import OptionList from "../OptionList/OptionList";
 
 function Question() {
-  const [selectedAnswerIndex, setSelectedAnswerIndex] = useState(null);
+  const [selectedAnswerIndex, setSelectedAnswerIndex] = useState<number | null>(
+    null,
+  );
   const [showValidationFeedback, setShowValidationFeedback] = useState(false);
   const { numQuestions, questionIndex, currentQuestion } = useQuestions();
   const submitAnswer = useQuizStore((state) => state.submitAnswer);
@@ -18,7 +20,7 @@ function Question() {
     }
   };
 
-  const { question, options, correctAnswerIndex } = currentQuestion;
+  const { question, options, correctAnswerIndex } = currentQuestion!;
 
   return (
     <div className="md:flex md:gap-32">

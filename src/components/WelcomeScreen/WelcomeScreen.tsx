@@ -1,4 +1,3 @@
-import { useQuizStore } from "../../QuizStore";
 import Topics from "../Topics/Topics";
 
 function WelcomeScreen() {

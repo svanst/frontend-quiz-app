@@ -1,12 +1,11 @@
 import { CircleCheck, CircleX } from "lucide-react";
 
-interface OptionListProps {
+type OptionListProps = {
   options: string[];
   selectedAnswerIndex: number | null;
   correctAnswerIndex: number | null;
   setSelectedAnswerIndex: (index: number) => void;
-  indexToLetter: (index: number) => string;
-}
+};
 
 function OptionList({
   options,
@@ -65,7 +64,17 @@ function OptionList({
 
 const indexToLetter = (index: number) => String.fromCharCode(65 + index);
 
-function OptionIcon({ isCorrectOption, isGivenAnswer, className }) {
+interface OptionIconProps {
+  isCorrectOption: boolean;
+  isGivenAnswer: boolean;
+  className?: string;
+}
+
+function OptionIcon({
+  isCorrectOption,
+  isGivenAnswer,
+  className,
+}: OptionIconProps) {
   if (isCorrectOption) {
     return <CircleCheck className={`${className} text-success`} />;
   } else if (isGivenAnswer) {

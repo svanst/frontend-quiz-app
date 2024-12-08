@@ -1,6 +1,6 @@
 import { useTopics } from "../../hooks/useTopics";
 import { useQuizStore } from "../../QuizStore";
-import TopicIcon from "../TopicIcon/TopicIcon";
+import TopicIcon, { IconKey } from "../TopicIcon/TopicIcon";
 
 function Topics() {
   const startQuiz = useQuizStore((state) => state.startQuiz);
@@ -11,13 +11,13 @@ function Topics() {
   }
 
   return (
-    <div className="flex flex-col gap-3">
+    <div className="flex flex-col gap-3 font-medium">
       {topics?.map((topic, i) => (
         <label
           key={topic}
           className="flex cursor-pointer items-center gap-4 rounded-xl bg-gray-500 p-4"
         >
-          <TopicIcon iconKey={topic} />
+          <TopicIcon iconKey={topic as IconKey} />
           <input
             className="hidden"
             type="radio"

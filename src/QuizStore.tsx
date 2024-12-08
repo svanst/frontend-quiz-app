@@ -1,6 +1,5 @@
 import { create } from "zustand";
 import quizData from "./data/data.json";
-import { devtools } from "zustand/middleware";
 
 type Question = {
   question: string;
@@ -14,18 +13,22 @@ type Quiz = {
   questions: Question[];
 };
 
-interface QuizStore {
+type QuizStatus = "start" | "in-progress" | "completed";
+
+type QuizStore = {
   quizzes: Quiz[];
   quizIndex: number | null;
   questionIndex: number | null;
   answerIndex: number | null;
   correctAnswerIndex: number | null;
   points: number;
-  status: "start" | "in-progress" | "completed";
+  status: QuizStatus;
   getCurrentQuiz: () => Quiz | null;
   getCurrentQuestion: () => Question | null;
+  playAgain: () => void;
+  startQuiz: (index: number) => void;
   submitAnswer: (index: number) => void;
-}
+};
 
 const initialState = {
   quizzes: quizData.quizzes,
@@ -34,7 +37,7 @@ const initialState = {
   answerIndex: null,
   correctAnswerIndex: null,
   points: 0,
-  status: "start",
+  status: "start" as QuizStatus,
 };
 
 export const useQuizStore = create<QuizStore>(
@@ -45,7 +48,7 @@ export const useQuizStore = create<QuizStore>(
       const { quizzes, quizIndex } = get();
       return quizIndex !== null ? quizzes[quizIndex] : null;
     },
-    submitAnswer(index: string) {
+    submitAnswer(index: number) {
       const { points, quizIndex, questionIndex } = get();
       let nextPoints = points;
 
@@ -64,7 +67,7 @@ export const useQuizStore = create<QuizStore>(
           state.questionIndex !== null ? state.questionIndex + 1 : null;
         const nextCorrectAnswerIndex =
           nextQuestionIndex !== null && nextQuestionIndex < quizLength
-            ? state.quizzes[state.quizIndex].questions[nextQuestionIndex]
+            ? state.quizzes[state.quizIndex!].questions[nextQuestionIndex]
                 .correctAnswerIndex
             : null;
 
@@ -89,13 +92,13 @@ export const useQuizStore = create<QuizStore>(
       console.log({ initialState });
       set({ ...initialState });
     },
-  })
+  }),
 );
 
 function getCorrectAnswerIndex(
   quizzes: Quiz[],
   quizIndex: number | null,
-  questionIndex: number | null
+  questionIndex: number | null,
 ): number | null {
   if (quizIndex !== null && questionIndex !== null) {
     return quizzes[quizIndex].questions[questionIndex].correctAnswerIndex;

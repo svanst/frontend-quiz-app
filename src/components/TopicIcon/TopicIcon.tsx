@@ -3,8 +3,10 @@ import CSSIcon from "./CSSIcon";
 import JavascriptIcon from "./JavascriptIcon";
 import AccessibilityIcon from "./AccessibilityIcon";
 
+export type IconKey = "HTML" | "CSS" | "Javascript" | "Accessibility";
+
 type TopicIconProps = {
-  iconKey: "HTML" | "CSS" | "Javascript" | "Accessibility";
+  iconKey: IconKey;
 };
 
 function TopicIcon({ iconKey }: TopicIconProps) {
