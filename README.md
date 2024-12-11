@@ -28,4 +28,4 @@ My goals in taking on this challenge included the following:
 
 ### Screenshots of my implementation of the desktop layout
 
-![](screenshots/frontend-quiz.png)
+![](screenshots/frontend quiz.png)
